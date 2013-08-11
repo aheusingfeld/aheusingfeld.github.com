@@ -5,13 +5,13 @@
 <author>
 <name>Alexander Heusingfeld</name>
 </author>
-<updated>2013-08-11T02:50:41+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <link href="http://aheusingfeld.github.io/feed.atom" rel="self" type="application/atom+xml" />
 <link href="http://aheusingfeld.github.io/" rel="alternate" type="text/html" />
 <entry>
 <id>http://aheusingfeld.github.io/posts/2013/08/08/speaking-at-DOAG-SIG-Middleware/</id>
 <title>Speaking at DOAG SIG Middleware 2013</title>
-<updated>2013-08-11T02:50:41+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-08-08T20:47:32+02:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/08/08/speaking-at-DOAG-SIG-Middleware/" rel="alternate" type="text/html" />
 <author>
@@ -53,7 +53,7 @@ This event will take place in Düsseldorf on Oct, 8th 2013. It is a meetup of th
 <entry>
 <id>http://aheusingfeld.github.io/posts/2013/08/06/getting-started-with-clojure/</id>
 <title>Getting started with Clojure</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-08-06T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/08/06/getting-started-with-clojure/" rel="alternate" type="text/html" />
 <category term="clojure"></category>
@@ -180,7 +180,7 @@ Just kidding. I wanted to dig into Clojure for about a year now, but couldn't fi
 <entry>
 <id>http://aheusingfeld.github.io/posts/2013/07/13/speaking-at-javaone2013/</id>
 <title>Speaking at JavaOne 2013</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-07-13T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/07/13/speaking-at-javaone2013/" rel="alternate" type="text/html" />
 <category term="talk"></category>
@@ -215,7 +215,7 @@ will join me on the trip. He and his friend &lt;a href=&quot;http://twitter.com/
 <entry>
 <id>http://aheusingfeld.github.io/posts/2013/06/27/postfix-and-etc-hosts/</id>
 <title>Postfix and /etc/hosts</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-06-27T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/06/27/postfix-and-etc-hosts/" rel="alternate" type="text/html" />
 <category term="linux"></category>
@@ -310,91 +310,9 @@ $ echo Hi there, how are you? | mail -s &quot;test mail&quot; root
 </content>
 </entry>
 <entry>
-<id>http://aheusingfeld.github.io/posts/2013/05/17/2013-05-17_On_the_fly_java_keystore_for_testing/</id>
-<title>On the fly java keystore for testing</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
-<published>2013-05-17T00:00:00+00:00</published>
-<link href="http://aheusingfeld.github.io/posts/2013/05/17/2013-05-17_On_the_fly_java_keystore_for_testing/" rel="alternate" type="text/html" />
-<category term="java"></category>
-<category term="maven"></category>
-<category term="keystore"></category>
-<category term="jetty"></category>
-<category term="ssl"></category>
-<summary>
-
-
-
-    org.codehaus.mojo
-    keytool-maven-plugin
-    
-        
-            generate-resources
-            clean
-            
-                clean
-            
-        
-       ...
-</summary>
-<content type="html">
-
-&lt;pre&gt;
-&lt;plugin&gt;
-    &lt;groupid&gt;org.codehaus.mojo&lt;/groupid&gt;
-    &lt;artifactid&gt;keytool-maven-plugin&lt;/artifactid&gt;
-    &lt;executions&gt;
-        &lt;execution&gt;
-            &lt;phase&gt;generate-resources&lt;/phase&gt;
-            &lt;id&gt;clean&lt;/id&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;clean&lt;/goal&gt;
-            &lt;/goals&gt;
-        &lt;/execution&gt;
-        &lt;execution&gt;
-            &lt;phase&gt;generate-resources&lt;/phase&gt;
-            &lt;id&gt;genkey&lt;/id&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;genkey&lt;/goal&gt;
-            &lt;/goals&gt;
-        &lt;/execution&gt;
-    &lt;/executions&gt;
-    &lt;configuration&gt;
-        &lt;keystore&gt;${project.build.directory}/ssl.keystore&lt;/keystore&gt;
-        &lt;dname&gt;cn=localhost&lt;/dname&gt;
-        &lt;keypass&gt;test&lt;/keypass&gt;
-        &lt;storepass&gt;test&lt;/storepass&gt;
-        &lt;alias&gt;test&lt;/alias&gt;
-        &lt;keyalg&gt;RSA&lt;/keyalg&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;
-&lt;plugin&gt;
-    &lt;groupid&gt;org.mortbay.jetty&lt;/groupid&gt;
-    &lt;artifactid&gt;maven-jetty-plugin&lt;/artifactid&gt;
-    &lt;configuration&gt;
-        &lt;contextpath&gt;/context&lt;/contextpath&gt;
-        &lt;scanintervalseconds&gt;5&lt;/scanintervalseconds&gt;
-        &lt;connectors&gt;
-            &lt;connector implementation=&quot;org.mortbay.jetty.nio.SelectChannelConnector&quot;&gt;
-                &lt;port&gt;8080&lt;/port&gt;
-                &lt;maxidletime&gt;60000&lt;/maxidletime&gt;
-            &lt;/connector&gt;
-            &lt;connector implementation=&quot;org.mortbay.jetty.security.SslSocketConnector&quot;&gt;
-                &lt;port&gt;8443&lt;/port&gt;
-                &lt;maxidletime&gt;60000&lt;/maxidletime&gt;
-                &lt;keystore&gt;${project.build.directory}/ssl.keystore&lt;/keystore&gt;
-                &lt;password&gt;test&lt;/password&gt;
-                &lt;keypassword&gt;test&lt;/keypassword&gt;
-            &lt;/connector&gt;
-        &lt;/connectors&gt;
-    &lt;/configuration&gt;
-&lt;/plugin&gt;&lt;/pre&gt;
-
-</content>
-</entry>
-<entry>
 <id>http://aheusingfeld.github.io/posts/2013/04/25/collaborator-on-sonar-intellij-plugin/</id>
 <title>Collaborator on Sonar IntelliJ Plugin</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-04-25T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/04/25/collaborator-on-sonar-intellij-plugin/" rel="alternate" type="text/html" />
 <category term="intellij"></category>
@@ -432,7 +350,7 @@ The Sonar plugin for IntelliJ is a basic...
 <entry>
 <id>http://aheusingfeld.github.io/posts/2013/04/21/speaking-at-javaforum-stuttgart/</id>
 <title>I'm speaking at Java Forum Stuttgart 2013</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-04-21T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/04/21/speaking-at-javaforum-stuttgart/" rel="alternate" type="text/html" />
 <category term="talk"></category>
@@ -460,7 +378,7 @@ You can see the &lt;a href=&quot;http://www.java-forum-stuttgart.de/de/Programm.
 <entry>
 <id>http://aheusingfeld.github.io/posts/2013/03/20/Mac-OS-X-for-java-developers/</id>
 <title>Mac OS X setup tips &amp; tricks</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2013-03-20T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2013/03/20/Mac-OS-X-for-java-developers/" rel="alternate" type="text/html" />
 <category term="os x"></category>
@@ -648,231 +566,9 @@ Manual Installations
 </content>
 </entry>
 <entry>
-<id>http://aheusingfeld.github.io/posts/2013/01/27/multiboot-ubuntu-and-android-on-Nexus7/</id>
-<title>Multiboot Ubuntu and Android on Nexus7</title>
-<updated>2013-08-11T03:22:31+02:00</updated>
-<published>2013-01-27T23:00:00+02:00</published>
-<link href="http://aheusingfeld.github.io/posts/2013/01/27/multiboot-ubuntu-and-android-on-Nexus7/" rel="alternate" type="text/html" />
-<author>
-<name>Alexander Heusingfeld</name>
-</author>
-<category term="ubuntu"></category>
-<category term="linux"></category>
-<category term="android"></category>
-<category term="nexus7"></category>
-<category term="embedded"></category>
-<summary>
-
-
-
-In my previous post I described how to setup [Ubuntu Linux](http://www.ubuntu.org/) and [Oracle Java](http://java.oracle.net/) on the [Nexus7 device](https://play.google.com/store/devices/details?id=nexus_7_16gb) as the single operating system. In this post I&#8217;m going to setup a multiboot solution so you are able to use Android and Ubuntu.
-My environment is a Macbook Pro (MBP) running on OS X 10.8 (Mountain Lion). The Nexus 7 (in my case the 16gb version) was returned to Stock Android with the latest 4.2.1 (JOP40D) image as available here (Please use "nakasig" if you have the GSM/HSPA+ version of Nexus7). It is attached to the Macbook via its USB cable.
-
-
-Now following...
-</summary>
-<content type="html">
-&lt;div id=&quot;preamble&quot;&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In my previous post I described how to setup [Ubuntu Linux](&lt;a href=&quot;http://www.ubuntu.org/&quot;&gt;http://www.ubuntu.org/&lt;/a&gt;) and [Oracle Java](&lt;a href=&quot;http://java.oracle.net/&quot;&gt;http://java.oracle.net/&lt;/a&gt;) on the [Nexus7 device](&lt;a href=&quot;https://play.google.com/store/devices/details?id=nexus_7_16gb&quot;&gt;https://play.google.com/store/devices/details?id=nexus_7_16gb&lt;/a&gt;) as the single operating system. In this post I’m going to setup a multiboot solution so you are able to use Android and Ubuntu.
-My environment is a Macbook Pro (MBP) running on OS X 10.8 (Mountain Lion). The Nexus 7 (in my case the 16gb version) was returned to &lt;a href=&quot;https://wiki.ubuntu.com/Nexus7/Installation#Returning_your_Nexus_7_to_Stock_Android&quot;&gt;Stock Android&lt;/a&gt; with the latest 4.2.1 (JOP40D) image as available &lt;a href=&quot;https://developers.google.com/android/nexus/images#nakasi&quot;&gt;here&lt;/a&gt; (Please use &quot;nakasig&quot; if you have the GSM/HSPA+ version of Nexus7). It is attached to the Macbook via its USB cable.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Now following the description &lt;a href=&quot;http://forum.xda-developers.com/showthread.php?t=2011403&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;pass::[more]&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;backup&quot;&gt;Backup&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Before we start please make sure you have a backup of all your important data on the Nexus! To do this I downloaded the AirDroid App from Google Playstore on my Nexus.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A complete post on howto backup your apps is available &lt;a href=&quot;http://www.teamandroid.com/2013/01/01/how-to-backup-android-apps/&quot;&gt;here by team android&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Unfortunately if the apps are copy protected you will not be able to back them up this way.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;root-your-device&quot;&gt;Root your device&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I followed the instructions on &lt;a href=&quot;http://www.teamandroid.com/2012/11/27/root-nexus-7-android-421-jop40d-jelly-bean-install-cwm-recovery/2/&quot;&gt;Root Nexus 7 on Android 4.2.1&lt;/a&gt;. Therefore I will only summarize the necessary steps here&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Download the following files to the Mac&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android SDK&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://download.chainfire.eu/282/SuperSU/CWM-SuperSU-v0.98.zip?retrieve_file=1&quot;&gt;http://download.chainfire.eu/282/SuperSU/CWM-SuperSU-v0.98.zip?retrieve_file=1&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;install-kexec-hardboot-patch&quot;&gt;Install kexec-hardboot patch&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://forum.xda-developers.com/showthread.php?t=2104706&quot;&gt;http://forum.xda-developers.com/showthread.php?t=2104706&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;install-openssh-as-recovery-console&quot;&gt;Install OpenSSH as recovery console&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;To be able to interact with the device when the X11-Server crashes (or you chose an unusable Desktop environment - like me I wanted to try &quot;Openbox&quot;) your first step should be the installation of the OpenSSH server.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;$ sudo apt-get install openssh-server&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Via &quot;ipconfig&quot; you get the ip of your device and can login from a remote machine (username: ubuntu; password: ubuntu).&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;decrease-memory-consumption&quot;&gt;Decrease memory consumption&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;On of the [Known Issues](&lt;a href=&quot;https://wiki.ubuntu.com/Nexus7/KnownIssues&quot;&gt;https://wiki.ubuntu.com/Nexus7/KnownIssues&lt;/a&gt;) is a quiet large memory consumption of the unity desktop. To compress memory and decrease memory consumption you can install the following&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;$ sudo apt-get install zram-config&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Another way would be to install a more lightweight desktop environment like LXDE
-	$ sudo apt-get install lxde&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;installing-oracle-java&quot;&gt;Installing Oracle Java&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;For my installation I used Oracle JDK 7 (1.7.10 Developer Preview available here: [&lt;a href=&quot;http://jdk7.java.net/fxarmpreview/%5D(http://jdk7.java.net/fxarmpreview/))&quot;&gt;http://jdk7.java.net/fxarmpreview/](http://jdk7.java.net/fxarmpreview/))&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;$ sudo mkdir -p /opt/java
-$ wget http://www.java.net/download/JavaFXarm/jdk-7u10-ea-fx-8_0_0-embedded-linux-arm-sfp.tar.gz
-$ sudo tar xzvf jdk-7u10-ea-fx-8_0_0-embedded-linux-arm-sfp.tar.gz -C /opt/java&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Finally we need to add the JAVA_HOME variable to the .bashrc file so it is set for every shell session&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;$ echo export JAVA_HOME=/opt/java/jdk1.7.0_10 &amp;gt;&amp;gt; ~/.bashrc
-$ echo export PATH=\$JAVA_HOME/bin:\$PATH &amp;gt;&amp;gt; ~/.bashrc&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;If you now try to start java you should get an error like the following&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;/opt/java/jdk1.7.0_10/bin/java: No such file or directory&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;or if you’re already one step further this one&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;/opt/java/jdk1.7.0_10/bin/java: error while loading shared libraries: libgcc_s.so.1: cannot open shared object file: No such file or directory&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I’m totally new to the embedded business so please spare me, but as far as I found out, the above mentioned java version goes well with ARM softfp shared libraries for armhf. So we need to install a special version of libc6 for java on our Nvidia Tegra ([ARM Cortex-A9](&lt;a href=&quot;http://www.arm.com/products/processors/cortex-a/cortex-a9.php)&quot;&gt;http://www.arm.com/products/processors/cortex-a/cortex-a9.php)&lt;/a&gt;) and also the according &quot;gcc1&quot; version:
-	$ sudo apt-get install libc6-armel libsfgcc1&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;After this you should be able to run the &quot;java&quot; command successfully:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content monospaced&quot;&gt;
-&lt;pre&gt;$ /opt/java/jdk1.7.0_10/bin/java -version
-  java version &quot;1.7.0_10-ea&quot;
-  Java(TM) SE Runtime Environment (build 1.7.0_10-ea-b08)
-  Java HotSpot(TM) Client VM (build 23.6-b03, mixed mode)&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;to-be-continued&quot;&gt;To be continued…&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;As this post is already rather long, I’ll continue the findings on JavaFX in a follow-up post. In the meantime you can [follow me on Twitter](&lt;a href=&quot;http://twitter.com/goldstift&quot;&gt;http://twitter.com/goldstift&lt;/a&gt;) to stay up to date.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-</content>
-</entry>
-<entry>
-<id>http://aheusingfeld.github.io/posts/2013/01/13/Contribute-to-an-IntelliJ-plugin/</id>
-<title>Howto contribute to an IntelliJ IDEA plugin</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
-<published>2013-01-13T00:00:00+00:00</published>
-<link href="http://aheusingfeld.github.io/posts/2013/01/13/Contribute-to-an-IntelliJ-plugin/" rel="alternate" type="text/html" />
-<category term="intellij"></category>
-<category term="java"></category>
-<category term="plugin"></category>
-<category term="open source"></category>
-<summary>
-
-References:
-
-
-
-http://www.jetbrains.org/pages/viewpage.action?pageId=983225
-*
-
-
-
-
-
-Steps
-
-Checkout IntelliJ Community Edition from Github:
-$ git clone https://github.com/JetBrains/intellij-community
-
-
-...
-</summary>
-<content type="html">
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;references&quot;&gt;References:&lt;/h3&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.jetbrains.org/pages/viewpage.action?pageId=983225&quot;&gt;http://www.jetbrains.org/pages/viewpage.action?pageId=983225&lt;/a&gt;
-*&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;steps&quot;&gt;Steps&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Checkout IntelliJ Community Edition from Github:
-$ git clone &lt;a href=&quot;https://github.com/JetBrains/intellij-community&quot;&gt;https://github.com/JetBrains/intellij-community&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-</content>
-</entry>
-<entry>
 <id>http://aheusingfeld.github.io/posts/2012/12/13/Glassfish4-on-Nexus7/</id>
 <title>Glassfish 4 on Nexus7</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-12-13T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/12/13/Glassfish4-on-Nexus7/" rel="alternate" type="text/html" />
 <category term="glassfish"></category>
@@ -965,255 +661,9 @@ As accessing the Glassfish Admin Gui from a remote system is just a matter of en
 </content>
 </entry>
 <entry>
-<id>http://aheusingfeld.github.io/posts/2012/12/02/Ubuntu-on-Nexus7-with-JavaFX/</id>
-<title>Ubuntu on Nexus7 with JavaFX</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
-<published>2012-12-02T00:00:00+00:00</published>
-<link href="http://aheusingfeld.github.io/posts/2012/12/02/Ubuntu-on-Nexus7-with-JavaFX/" rel="alternate" type="text/html" />
-<category term="java"></category>
-<category term="javafx"></category>
-<category term="ubuntu"></category>
-<category term="nexus7"></category>
-<category term="embedded"></category>
-<category term="linux"></category>
-<category term="android"></category>
-<summary>
-
-$ sudo apt-get install openjdk-7-jdk icedtea-7-plugin
-The following NEW packages will be installed:
-  ca-certificates-java icedtea-7-jre-jamvm icedtea-7-plugin icedtea-netx icedtea-netx-common java-common libatk-wrapper-java libatk-wrapper-java-jni libbonobo2-0  libbonobo2-common libgconf2-4 libgif4 libgnome2-0 libgnome2-bin libgnome2-common libgnomevfs2-0 libgnomevfs2-common libice-dev libidl-common libidl0 libnss3-1d liborbit2 libpthread-stubs0 libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib ttf-dejavu-extra tzdata-java x11proto-core-dev x11proto-input-dev x11proto-kb-dev xorg-sgml-doctools xtrans-dev
-0 upgraded, 42 newly installed, 0 to remove and 0 not upgraded.
-
-
-System stabilization
-Currently there are some bugs in Unity and Nux which are already fixed in the Unity-Team PPA. To get the fixes you need to add their ppa via
-
-$ sudo add-apt-repository ppa:unity-team/ppa
-$ sudo apt-get...
-</summary>
-<content type="html">
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install openjdk-7-jdk icedtea-7-plugin
-The following NEW packages will be installed:
-  ca-certificates-java icedtea-7-jre-jamvm icedtea-7-plugin icedtea-netx icedtea-netx-common java-common libatk-wrapper-java libatk-wrapper-java-jni libbonobo2-0  libbonobo2-common libgconf2-4 libgif4 libgnome2-0 libgnome2-bin libgnome2-common libgnomevfs2-0 libgnomevfs2-common libice-dev libidl-common libidl0 libnss3-1d liborbit2 libpthread-stubs0 libpthread-stubs0-dev libsm-dev libx11-dev libx11-doc libxau-dev libxcb1-dev libxdmcp-dev libxt-dev openjdk-7-jdk openjdk-7-jre openjdk-7-jre-headless openjdk-7-jre-lib ttf-dejavu-extra tzdata-java x11proto-core-dev x11proto-input-dev x11proto-kb-dev xorg-sgml-doctools xtrans-dev
-0 upgraded, 42 newly installed, 0 to remove and 0 not upgraded.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;system-stabilization&quot;&gt;System stabilization&lt;/h3&gt;
-&lt;p&gt;Currently there are some bugs in Unity and Nux which are already fixed in the Unity-Team PPA. To get the fixes you need to add their ppa via&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo add-apt-repository ppa:unity-team/ppa
-$ sudo apt-get update
-$ sudo apt-get upgrade
-The following packages will be upgraded:
-  bamfdaemon gir1.2-unity-5.0 libbamf3-0 libunity-protocol-private0 libunity9 nux-tools unity-lens-photos
-7 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
-$ sudo service lightdm restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Nice to know: Ubuntu for Nexus7 image uses hard-float ABI (aka armhf/gnueabihf) but #JavaFX embedded uses SoftFloat (aka 'armel'). See 
-&lt;a href=&quot;https://groups.google.com/d/msg/pandaboard/bb53tEV5GKA/OaU2L3Qqz5EJ&quot;&gt;https://groups.google.com/d/msg/pandaboard/bb53tEV5GKA/OaU2L3Qqz5EJ&lt;/a&gt; for reference.&lt;/p&gt;
-
-&lt;p&gt;Following my last blog post I tried to start the JavaFX FXMLLoginDemo and got the following error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo /opt/java/jdk1.7.0_10/bin/java -Djavafx.platform=fb -cp /opt/java/jdk1.7.0_10/jre/lib/jfxrt.jar:/home/ubuntu/Downloads/javafx-samples-2.2.3/FXML-LoginDemo.jar com.javafx.main.Main
-SEVERE: com.sun.glass.ui.lens.LensApplication _initialize 2928 src/fb-input/fbCursor.c:66 fbCursorInitialize: Cannot query plane info
-SEVERE: com.sun.glass.ui.lens.LensApplication _initialize 2928 src/fb-input/fbCursor.c:130 fbCursorClose: Failed to disable cursor plane
-Exception in Application start method
-java.lang.NoClassDefFoundError: Could not initialize class com.sun.javafx.css.StyleHelper
-	at com.sun.javafx.css.StyleManager.getStyleHelper(StyleManager.java:898)
-	at javafx.scene.Node.impl_processCSS(Node.java:7459)
-	at javafx.scene.Parent.impl_processCSS(Parent.java:1179)
-	at javafx.scene.Node.processCSS(Node.java:7426)
-	at javafx.scene.Scene.doCSSPass(Scene.java:446)
-	at javafx.scene.Scene.access$3800(Scene.java:171)
-	at javafx.scene.Scene$ScenePulseListener.pulse(Scene.java:2217)
-	at com.sun.javafx.tk.Toolkit.firePulse(Toolkit.java:346)
-	at com.sun.javafx.tk.quantum.QuantumToolkit.pulse(QuantumToolkit.java:502)
-	at com.sun.javafx.tk.quantum.QuantumToolkit$11.run(QuantumToolkit.java:355)
-	at com.sun.glass.ui.lens.LensApplication$RunnableEvent.dispatch(Unknown Source)
-	at com.sun.glass.ui.lens.LensApplication._runLoop(Unknown Source)
-	at com.sun.glass.ui.lens.LensApplication.access$400(Unknown Source)
-	at com.sun.glass.ui.lens.LensApplication$4.run(Unknown Source)
-	at java.lang.Thread.run(Thread.java:722)
-java.lang.reflect.InvocationTargetException
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:601)
-	at com.javafx.main.Main.launchApp(Main.java:642)
-	at com.javafx.main.Main.main(Main.java:805)
-Caused by: java.lang.RuntimeException: Exception in Application start method
-	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:376)
-	at com.sun.javafx.application.LauncherImpl.access$000(LauncherImpl.java:47)
-	at com.sun.javafx.application.LauncherImpl$1.run(LauncherImpl.java:115)
-	at java.lang.Thread.run(Thread.java:722)
-Caused by: java.lang.UnsatisfiedLinkError: /opt/java/jdk1.7.0_10/jre/lib/arm/libjavafx-font.so: libstdc++.so.6: cannot open shared object file: No such file or directory
-	at java.lang.ClassLoader$NativeLibrary.load(Native Method)
-	at java.lang.ClassLoader.loadLibrary1(ClassLoader.java:1939)
-	at java.lang.ClassLoader.loadLibrary0(ClassLoader.java:1864)
-	at java.lang.ClassLoader.loadLibrary(ClassLoader.java:1825)
-	at java.lang.Runtime.load0(Runtime.java:792)
-	at java.lang.System.load(System.java:1059)
-	at com.sun.glass.utils.NativeLibLoader.loadLibraryFullPath(Unknown Source)
-	at com.sun.glass.utils.NativeLibLoader.loadLibraryInternal(Unknown Source)
-	at com.sun.glass.utils.NativeLibLoader.loadLibrary(Unknown Source)
-	at com.sun.t2k.T2KFontFactory$1.run(T2KFontFactory.java:57)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at com.sun.t2k.T2KFontFactory.&amp;lt;clinit&amp;gt;(T2KFontFactory.java:54)
-	at com.sun.javafx.font.PrismFontLoader.getSystemFontSize(PrismFontLoader.java:496)
-	at javafx.scene.text.Font.getDefaultSystemFontSize(Font.java:69)
-	at javafx.scene.text.Font.getDefault(Font.java:85)
-	at com.sun.javafx.css.StyleHelper.&amp;lt;clinit&amp;gt;(StyleHelper.java:1600)
-	at com.sun.javafx.css.StyleManager.getStyleHelper(StyleManager.java:898)
-	at javafx.scene.Node.impl_processCSS(Node.java:7459)
-	at javafx.scene.Parent.impl_processCSS(Parent.java:1179)
-	at javafx.scene.Node.processCSS(Node.java:7426)
-	at javafx.scene.Scene.doCSSPass(Scene.java:446)
-	at javafx.scene.Scene.preferredSize(Scene.java:1455)
-	at javafx.scene.Scene.impl_preferredSize(Scene.java:1522)
-	at javafx.stage.Window$10.invalidated(Window.java:723)
-	at javafx.beans.property.BooleanPropertyBase.markInvalid(BooleanPropertyBase.java:106)
-	at javafx.beans.property.BooleanPropertyBase.set(BooleanPropertyBase.java:140)
-	at javafx.stage.Window.setShowing(Window.java:786)
-	at javafx.stage.Window.show(Window.java:801)
-	at javafx.stage.Stage.show(Stage.java:230)
-	at demo.Main.start(Main.java:44)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As system user &quot;ubuntu&quot; change into directory &quot;/usr/lib&quot; and create the following symlinks:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ cd /usr/lib
-$ sudo ln -s /usr/lib/arm-linux-gnueabihf/libXext.so.6 libXext.so.6
-$ sudo ln -s /usr/lib/arm-linux-gnueabihf/libXext.so.6.4.0 libXext.so.6.4.0
-$ sudo ln -s /usr/lib/arm-linux-gnueabihf/libstdc++.so.6 libstdc++.so.6
-$ sudo ln -s /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.17 libstdc++.so.6.0.17
-$ sudo ln -s /usr/lib/arm-linux-gnueabihf/libX11.so.6.3.0 libX11.so.6
-$ sudo ln -s /usr/lib/arm-linux-gnueabihf/libX11.so.6.3.0 libX11.so.6.3.0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Afterwards you should see the following:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls -la /usr/lib/libXext*
-lrwxrwxrwx 1 root root 41 Dec  1 10:28 /usr/lib/libXext.so.6 -&amp;gt; /usr/lib/arm-linux-gnueabihf/libXext.so.6
-lrwxrwxrwx 1 root root 45 Dec  1 10:28 /usr/lib/libXext.so.6.4.0 -&amp;gt; /usr/lib/arm-linux-gnueabihf/libXext.so.6.4.0
-$ ls -la /usr/lib/libstdc*
-lrwxrwxrwx 1 root root 43 Dec  1 21:12 /usr/lib/libstdc++.so.6 -&amp;gt; /usr/lib/arm-linux-gnueabihf/libstdc++.so.6
-lrwxrwxrwx 1 root root 48 Dec  1 21:13 /usr/lib/libstdc++.so.6.0.17 -&amp;gt; /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.17
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Unfortunately rendering directly to the framebuffer didn't work, so I tried to render via OpenGL next. &lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo /opt/java/jdk1.7.0_10/bin/java -Djavafx.platform=eglfb -cp /opt/java/jdk1.7.0_10/jre/lib/jfxrt.jar:/home/ubuntu/Downloads/javafx-samples-2.2.3/FXML-LoginDemo.jar com.javafx.main.Main
-
-Graphics Device initialization failed for :  es2
-Error initializing QuantumRenderer: no suitable pipeline found
-java.lang.RuntimeException: java.lang.RuntimeException: Error initializing QuantumRenderer: no suitable pipeline found
-	at com.sun.javafx.tk.quantum.QuantumRenderer.getInstance(QuantumRenderer.java:271)
-	at com.sun.javafx.tk.quantum.QuantumToolkit.init(QuantumToolkit.java:261)
-	at com.sun.javafx.tk.Toolkit.getToolkit(Toolkit.java:190)
-	at com.sun.javafx.application.PlatformImpl.startup(PlatformImpl.java:120)
-	at com.sun.javafx.application.LauncherImpl.launchApplication1(LauncherImpl.java:163)
-	at com.sun.javafx.application.LauncherImpl.access$000(LauncherImpl.java:47)
-	at com.sun.javafx.application.LauncherImpl$1.run(LauncherImpl.java:115)
-	at java.lang.Thread.run(Thread.java:722)
-Caused by: java.lang.RuntimeException: Error initializing QuantumRenderer: no suitable pipeline found
-	at com.sun.javafx.tk.quantum.QuantumRenderer$PipelineRunnable.init(QuantumRenderer.java:76)
-	at com.sun.javafx.tk.quantum.QuantumRenderer$PipelineRunnable.run(QuantumRenderer.java:97)
-	... 1 more
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Therefore the following additional packages seem to be needed:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install libjogl2-java libjogl2-jni
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;These are then installed to &lt;code&gt;/usr/lib/jni&lt;/code&gt; and have to be specified via the parameter &lt;code&gt;-Djava.library.path&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo strace -o strace-javafx.txt -f /opt/java/jdk1.7.0_10/bin/java -Djavafx.platform=eglfb -Djava.library.path=/usr/lib/jni -Dcom.sun.javafx.isEmbedded=false -cp /opt/java/jdk1.7.0_10/jre/lib/jfxrt.jar:/home/ubuntu/Downloads/javafx-samples-2.2.3/FXML-LoginDemo.jar com.javafx.main.Main	
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;this created the following file: https://gist.github.com/4208893&lt;/p&gt;
-
-&lt;p&gt;Any comments, optimization requests and suggestions are very warm welcome!&lt;/p&gt;
-
-&lt;h3 id=&quot;links-of-further-interest&quot;&gt;Links of further interest:&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.raspberrypi.org/phpBB3/viewtopic.php?f=29&amp;amp;t=7796&quot;&gt;Please explain softfloat vs softfp vs hardfp&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Linux Packages Search http://pkgs.org/ubuntu-12.10/ubuntu-universe-i386/libsfstdc++6-armhf-cross_4.7.2-1ubuntu1cross1.70_all.deb.html&lt;/li&gt;
-  &lt;li&gt;http://stackoverflow.com/questions/12764023/visualvm-can-not-start&lt;/li&gt;
-  &lt;li&gt;https://forums.oracle.com/forums/thread.jspa?threadID=2451224&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wiki.ubuntu.com/Nexus7/KnownIssues&quot;&gt;Known Issues&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugs.launchpad.net/ubuntu-nexus7&quot;&gt;Bugtracker for ubuntu-Nexus7&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://wiki.ubuntu.com/Multitouch/Ginn&quot;&gt;Ubuntu uses Ginn for Multitouch&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In my previous post I described how to setup &lt;a href=&quot;http://www.ubuntu.org/&quot;&gt;Ubuntu Linux&lt;/a&gt; and &lt;a href=&quot;http://java.oracle.net/&quot;&gt;Oracle Java&lt;/a&gt; on the &lt;a href=&quot;https://play.google.com/store/devices/details?id=nexus_7_16gb&quot;&gt;Nexus7 device&lt;/a&gt; as the single operating system. In this post 'm going to setup a multiboot solution so you are able to use Android and Ubuntu. 
-My environment is a Macbook Pro (MBP) running on OS X 10.8 (Mountain Lion). The Nexus 7 (in my case the 16gb version) is attached to the MBP via its USB cable.&lt;/p&gt;
-
-&lt;h4 id=&quot;install-openssh-as-recovery-console&quot;&gt;Install OpenSSH as recovery console&lt;/h4&gt;
-&lt;p&gt;To be able to interact with the device when the X11-Server crashes (or you chose an unusable Desktop environment - like me I wanted to try &quot;Openbox&quot;) your first step should be the installation of the OpenSSH server.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install openssh-server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Via &quot;ipconfig&quot; you get the ip of your device and can login from a remote machine (username: ubuntu; password: ubuntu).&lt;/p&gt;
-
-&lt;h4 id=&quot;decrease-memory-consumption&quot;&gt;Decrease memory consumption&lt;/h4&gt;
-&lt;p&gt;On of the &lt;a href=&quot;https://wiki.ubuntu.com/Nexus7/KnownIssues&quot;&gt;Known Issues&lt;/a&gt; is a quiet large memory consumption of the unity desktop. To compress memory and decrease memory consumption you can install the following&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo apt-get install zram-config 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Another way would be to install a more lightweight desktop environment like LXDE
-	$ sudo apt-get install lxde&lt;/p&gt;
-
-&lt;h3 id=&quot;installing-oracle-java&quot;&gt;Installing Oracle Java&lt;/h3&gt;
-&lt;p&gt;For my installation I used Oracle JDK 7 (1.7.10 Developer Preview available here: &lt;a href=&quot;http://jdk7.java.net/fxarmpreview/&quot;&gt;http://jdk7.java.net/fxarmpreview/&lt;/a&gt;)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo mkdir -p /opt/java
-$ wget http://www.java.net/download/JavaFXarm/jdk-7u10-ea-fx-8_0_0-embedded-linux-arm-sfp.tar.gz
-$ sudo tar xzvf jdk-7u10-ea-fx-8_0_0-embedded-linux-arm-sfp.tar.gz -C /opt/java
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Finally we need to add the JAVA_HOME variable to the .bashrc file so it is set for every shell session&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ echo export JAVA_HOME=/opt/java/jdk1.7.0_10 &amp;gt;&amp;gt; ~/.bashrc
-$ echo export PATH=\$JAVA_HOME/bin:\$PATH &amp;gt;&amp;gt; ~/.bashrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you now try to start java you should get an error like the following&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/opt/java/jdk1.7.0_10/bin/java: No such file or directory
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;or if you're already one step further this one&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/opt/java/jdk1.7.0_10/bin/java: error while loading shared libraries: libgcc_s.so.1: cannot open shared object file: No such file or directory
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;I'm totally new to the embedded business so please spare me, but as far as I found out, the above mentioned java version goes well with ARM softfp shared libraries for armhf. So we need to install a special version of libc6 for java on our Nvidia Tegra (&lt;a href=&quot;http://www.arm.com/products/processors/cortex-a/cortex-a9.php&quot;&gt;ARM Cortex-A9&lt;/a&gt;) and also the according &quot;gcc1&quot; version:
-	$ sudo apt-get install libc6-armel libsfgcc1&lt;/p&gt;
-
-&lt;p&gt;After this you should be able to run the &quot;java&quot; command successfully:	&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ /opt/java/jdk1.7.0_10/bin/java -version
-  java version &quot;1.7.0_10-ea&quot;
-  Java(TM) SE Runtime Environment (build 1.7.0_10-ea-b08)
-  Java HotSpot(TM) Client VM (build 23.6-b03, mixed mode)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;to-be-continued&quot;&gt;To be continued…&lt;/h3&gt;
-
-&lt;p&gt;As this post is already rather long, I'll continue the findings on JavaFX in a follow-up post. In the meantime you can &lt;a href=&quot;http://twitter.com/goldstift&quot;&gt;follow me on Twitter&lt;/a&gt; to stay up to date.&lt;/p&gt;
-
-
-</content>
-</entry>
-<entry>
 <id>http://aheusingfeld.github.io/posts/2012/11/30/Ubuntu+Java-on-Nexus7/</id>
 <title>Ubuntu and Java on Nexus7</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-11-30T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/11/30/Ubuntu+Java-on-Nexus7/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -1403,7 +853,7 @@ $ echo export PATH=\$JAVA_HOME/bin:\$PATH &amp;gt;&amp;gt; ~/.bashrc
 <entry>
 <id>http://aheusingfeld.github.io/posts/2012/11/26/Productivity-for-Finder/</id>
 <title>Enhancements for Mac OS X Finder.app</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-11-26T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/11/26/Productivity-for-Finder/" rel="alternate" type="text/html" />
 <category term="os x"></category>
@@ -1636,7 +1086,7 @@ You can find all three AppleScripts and apps in my Github Snippets repository at
 <entry>
 <id>http://aheusingfeld.github.io/posts/2012/11/03/JBoss-Forge-in_IntelliJ/</id>
 <title>JBoss Forge in IntelliJ IDEA</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-11-03T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/11/03/JBoss-Forge-in_IntelliJ/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -1700,7 +1150,7 @@ For Windows users I can recommend the bash packaged with &lt;a href=&quot;https:
 <entry>
 <id>http://aheusingfeld.github.io/posts/2012/10/09/JavaOne_Session-material-online/</id>
 <title>JavaOne 2012 Session material is now available</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-10-09T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/10/09/JavaOne_Session-material-online/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -1766,7 +1216,7 @@ so question and answer are publicly available for everyone interested. Thanks in
 <entry>
 <id>http://aheusingfeld.github.io/posts/2012/09/25/JavaOne/</id>
 <title>Getting ready for JavaOne 2012</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-09-25T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/09/25/JavaOne/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -1829,7 +1279,7 @@ so question and answer are publicly available for everyone interested. Thanks in
 <entry>
 <id>http://aheusingfeld.github.io/posts/2012/03/13/alternative-zu-google-vielleicht-duckduckgo/</id>
 <title>Alternative zu Google? Vielleicht DuckDuckGo</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2012-03-13T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2012/03/13/alternative-zu-google-vielleicht-duckduckgo/" rel="alternate" type="text/html" />
 <category term="google"></category>
@@ -1901,7 +1351,7 @@ nutze, die Firefox seit Version 2.0 bietet.&lt;/p&gt;
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/10/24/springroo-howto-translate-java-exceptions-to-user-friendly-error-messages/</id>
 <title>SpringRoo - Howto translate Java exceptions to user-friendly error messages</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-10-24T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/10/24/springroo-howto-translate-java-exceptions-to-user-friendly-error-messages/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -1992,7 +1442,7 @@ Thank you for posting this article! Even I have not much experience with Spring 
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/10/01/iphone-wartezeit-f-r-rufumleitung-bei-abwesenheit-setzen/</id>
 <title>iPhone - Wartezeit für Rufumleitung bei Abwesenheit setzen</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-10-01T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/10/01/iphone-wartezeit-f-r-rufumleitung-bei-abwesenheit-setzen/" rel="alternate" type="text/html" />
 <category term="iphone"></category>
@@ -2045,7 +1495,7 @@ aber vorher durch die Eingabe von &quot;*#61#&quot; die aktuelle Einstellung abf
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/09/25/springroo-entity-klassen-und-jpa-repositories-mit-springroo-erstellen/</id>
 <title>SpringRoo - Entity-Klassen und JPA-Repositories mit SpringRoo erstellen</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-09-25T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/09/25/springroo-entity-klassen-und-jpa-repositories-mit-springroo-erstellen/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -2104,7 +1554,7 @@ Ist die Software installiert und der MySQL-Datenbankserver gestartet, können mi
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/09/23/starting-photooapp-a-springroo-tutorial-application/</id>
 <title>Starting PhotooApp - A SpringRoo tutorial application</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-09-23T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/09/23/starting-photooapp-a-springroo-tutorial-application/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -2190,7 +1640,7 @@ Ich finde das Beispiel supergut,&lt;br&gt;&lt;br&gt;meine Frage wäre jetzt eher
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/06/05/praxistipps-zu-ftplicity/</id>
 <title>Praxistipps zu ftplicity</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-06-05T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/06/05/praxistipps-zu-ftplicity/" rel="alternate" type="text/html" />
 <category term="linux"></category>
@@ -2229,7 +1679,7 @@ Mein Backup wird durch die folgenden crontab-Einträge gesteuert:&lt;br&gt;&lt;/
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/06/03/how-to-set-default-comment-security-level-in-atlassian-jira/</id>
 <title>How to Set Default Comment Security Level in Atlassian JIRA</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-06-03T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/06/03/how-to-set-default-comment-security-level-in-atlassian-jira/" rel="alternate" type="text/html" />
 <category term="jira"></category>
@@ -2300,7 +1750,7 @@ Thank you. Works fine when commenting in Jira v4.2.4-b591.&lt;br&gt;But when att
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/02/13/broken-special-chars-in-spring-roo/</id>
 <title>Broken special chars in Spring Roo?</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-02-13T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/02/13/broken-special-chars-in-spring-roo/" rel="alternate" type="text/html" />
 <category term="java"></category>
@@ -2374,7 +1824,7 @@ pass::[more]
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/02/10/umlaute-und-sonderzeichen-in-spring-roo/</id>
 <title>Umlaute und Sonderzeichen in Spring Roo?</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-02-10T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/02/10/umlaute-und-sonderzeichen-in-spring-roo/" rel="alternate" type="text/html" />
 <summary>
@@ -2442,7 +1892,7 @@ super, hat mir sehr geholfen.&lt;br&gt;GRüsse Stefan&lt;/div&gt;
 <entry>
 <id>http://aheusingfeld.github.io/posts/2011/01/19/probleme-beim-login-ins-elster-eportal-mit-mac-os-x/</id>
 <title>Probleme beim Login ins Elster ePortal mit Mac OS X</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2011-01-19T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2011/01/19/probleme-beim-login-ins-elster-eportal-mit-mac-os-x/" rel="alternate" type="text/html" />
 <summary>
@@ -2494,7 +1944,7 @@ responded with a status of 404 (Not Found)&lt;/pre&gt;
 <entry>
 <id>http://aheusingfeld.github.io/posts/2009/04/22/-letztlich-doch-hier/</id>
 <title>...letztlich doch hier</title>
-<updated>2013-08-11T05:27:54+02:00</updated>
+<updated>2013-08-11T12:50:41+02:00</updated>
 <published>2009-04-22T00:00:00+00:00</published>
 <link href="http://aheusingfeld.github.io/posts/2009/04/22/-letztlich-doch-hier/" rel="alternate" type="text/html" />
 <summary>
